@@ -4,7 +4,7 @@ class Snake {
         this.y = 0;
         this.xdir = 1;
         this.ydir = 0;
-        this.scale = scale;
+        this.scal = scal;
         this.size = 1;
         this.tail = [];
         this.headImg = snakeHeadRightImg;
@@ -29,16 +29,16 @@ class Snake {
                 this.tailImg[this.size - 1] = snakeBodyVerImg;
             }
         }
-        this.x += this.xdir * scale;
-        this.y += this.ydir * scale;
+        this.x += this.xdir * scal;
+        this.y += this.ydir * scal;
 
-        if (this.x + this.scale > width) {
+        if (this.x + this.scal > width) {
             this.x = 0;
         }
         if (this.x < 0) {
             this.x = width;
         }
-        if (this.y + this.scale > height - 90) {
+        if (this.y + this.scal > height - 90) {
             this.y = 0; 
         }
         if (this.y < 0) {
@@ -55,18 +55,18 @@ class Snake {
 
     showBody() {
         for (let i = 1; i < this.tail.length; i++) {
-            image(this.tailImg[i], this.tail[i].x, this.tail[i].y, this.scale, this.scale);
+            image(this.tailImg[i], this.tail[i].x, this.tail[i].y, this.scal, this.scal);
         }
     }
 
     showTail(img) {
         if(this.size > 0){
-            image(img, this.tail[0].x, this.tail[0].y, this.scale, this.scale);
+            image(img, this.tail[0].x, this.tail[0].y, this.scal, this.scal);
         }
     }
 
     showHead() {
-        image(this.headImg, this.x, this.y, this.scale, this.scale);
+        image(this.headImg, this.x, this.y, this.scal, this.scal);
     }
 
     setDirection(x, y) {
@@ -104,8 +104,8 @@ class Snake {
         for (let i = 0; i < this.tail.length; i++) {
             if (this.x == this.tail[i].x && this.y == this.tail[i].y) {
                 this.tail.length = 0;
-                this.size = 1;
                 punctuation = 0;
+                this.size = 1;
                 return true;
             }
         }
@@ -151,7 +151,6 @@ class Snake {
 
     calculateTailImage() {
         let endImg;
-        if (this.size > 0) {
               if (this.tailDir[0].x == 1 && this.tailDir[0].y == 0) {
                 endImg = tailRight;
             } else if (this.tailDir[0].x == 0 && this.tailDir[0].y == 1) {
@@ -161,7 +160,7 @@ class Snake {
             } else if (this.tailDir[0].x == 0 && this.tailDir[0].y == -1) {
                 endImg = tailUp;
             }
-        }
+    
         return endImg;
     }
 }
