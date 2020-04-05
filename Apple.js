@@ -1,4 +1,4 @@
-class Apple {
+class Food {
     constructor() {
         this.x = Math.floor(Math.random() * sections) * scal;
         this.y = Math.floor(Math.random() * sections) * scal;
@@ -8,7 +8,7 @@ class Apple {
     show() {
         fill(255, 0, 0);
         //rect(this.x, this.y, this.scal, this.scal);
-        image(appleImg, this.x, this.y, this.scal, this.scal)
+        image(foodImg, this.x, this.y, this.scal, this.scal)
     }
 
     reappear(snake) {
